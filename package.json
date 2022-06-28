@@ -1,0 +1,33 @@
+{
+  "name": "sphere-react-native",
+  "version": "1.0.0",
+  "description": "GISTDA sphere map component for React Native",
+  "author": "TK <tanawat@mm.co.th>",
+  "license": "LGPL-3.0-or-later",
+  "homepage": "https://github.com/GISTDAsphere/sphere-react-native#readme",
+  "repository": "github:GISTDAsphere/sphere-react-native",
+  "files": [
+    "*",
+    "!example"
+  ],
+  "scripts": {
+    "sync": "rsync -r --include='index.js' --include='src/***' --exclude='*' . example/node_modules/sphere-map-react-native; touch example/App.js",
+    "merge": "git merge -X theirs --squash --allow-unrelated-histories main"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.0",
+    "@babel/runtime": "^7.18.0",
+    "metro-react-native-babel-preset": "^0.71.0",
+    "react": "17.0.2",
+    "react-native": "0.68.2"
+  },
+  "peerDependencies": {
+    "react-native": ">=0.60",
+    "react-native-webview": "^11.2.3"
+  },
+  "keywords": [
+    "GISTDA",
+    "map",
+    "react-native"
+  ]
+}
