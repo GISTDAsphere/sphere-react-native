@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "sphere-map-react-native-example",
-    "slug": "sphere-map-react-native-example",
+    "name": "sphere-react-native-example",
+    "slug": "sphere-react-native-example",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

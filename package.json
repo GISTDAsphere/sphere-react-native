@@ -11,7 +11,7 @@
     "!example"
   ],
   "scripts": {
-    "sync": "rsync -r --include='index.js' --include='src/***' --exclude='*' . example/node_modules/sphere-map-react-native; touch example/App.js",
+    "sync": "rsync -r --include='index.js' --include='src/***' --exclude='*' . example/node_modules/sphere-react-native; touch example/App.js",
     "merge": "git merge -X theirs --squash --allow-unrelated-histories main"
   },
   "devDependencies": {

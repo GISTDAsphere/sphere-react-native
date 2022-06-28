@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Button, SafeAreaView } from 'react-native';
-import Sphere from 'sphere-map-react-native';
+import Sphere from 'sphere-react-native';
 
 export default function App() {
   Sphere.apiKey = 'CHANGE_THIS_TO_YOUR_OWN_KEY';
