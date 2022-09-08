@@ -163,7 +163,12 @@ export default class MapView extends Component {
       }
 
       function callback(result) {
-        ReactNativeWebView.postMessage(JSON.stringify(serialize(result)));
+        try {
+          result = JSON.stringify(serialize(result));
+        } catch (e) {
+          result = '{}';
+        }
+        ReactNativeWebView.postMessage(result);
       }
     </script>
   </head>
