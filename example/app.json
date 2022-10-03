@@ -22,6 +22,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "th.or.gistda.sphere.MapRN",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"

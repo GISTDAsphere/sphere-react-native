@@ -1,7 +1,7 @@
 import {Platform} from 'react-native';
 
 export let Const = {
-  server: 'api.sphere-dev.gistda.or.th/map/',
+  server: 'api.sphere.gistda.or.th/map/',
   // bundleId
   // apiKey
   init: () => {

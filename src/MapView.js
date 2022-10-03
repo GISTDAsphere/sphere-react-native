@@ -224,6 +224,6 @@ export default class MapView extends Component {
   }
 
   #escape(data) {
-    return JSON.stringify(data).replaceAll('\\"', '\\\\"').replaceAll('\"', '\\"')
+    return JSON.stringify(data).replace(/\\"/g, '\\\\"').replace(/\"/g, '\\"')
   }
 }
