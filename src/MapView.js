@@ -67,7 +67,7 @@ export default class MapView extends Component {
           zoom: ${this.props.zoom},
           zoomRange: ${JSON.stringify(this.props.zoomRange)},
           location: ${JSON.stringify(this.props.location)},
-          ui: ${this.props.ui},
+          ui: parse(${JSON.stringify(this.props.ui)}),
           lastView: ${this.props.lastView},
           language: '${this.props.language }',
           placeholder: placeholder
@@ -83,14 +83,13 @@ export default class MapView extends Component {
         }
         map.Util = sphere.Util;
         map.toJSON = map.Overlays.toJSON = map.Ui.toJSON = () => ({});
-        objectList[0] = map;
       }
 
       function parse(data) {
         if (!data) return data;
         if (data.$static) {
           const value = sphere[data.$static]?.[data.name];
-          if (value) return value;
+          if (value !== undefined) return value;
           
           console.log(data.$static + '.' + data.name + ' is undefined');
         }
@@ -111,6 +110,7 @@ export default class MapView extends Component {
           }
           return object;
         }
+        if (data.$function) return eval(data.$function);
         if (Array.isArray(data)) return data.map(parse);
         if (typeof data === 'object') {
           for (key in data) {
@@ -135,9 +135,9 @@ export default class MapView extends Component {
       function call(method, args) {
         const dot = method.indexOf('.');
         if (dot < 0) {
-          commit(objectList[0], method, args);
+          commit(map, method, args);
         } else {
-          const executor = objectList[0][method.substring(0, dot)];
+          const executor = map[method.substring(0, dot)];
           const dot2 = method.indexOf('.', dot + 1);
           if (dot2 < 0) {
             commit(executor, method.substring(dot + 1), args);
@@ -198,7 +198,7 @@ export default class MapView extends Component {
       />
     );
   }
-  
+
   call(method, ...args) {
     if (method == 'Event.bind' || method == 'Event.unbind') {
       Const.log(method + ' not supported');
@@ -219,7 +219,7 @@ export default class MapView extends Component {
   }
 
   run(script) {
-    this.#web.injectJavaScript(script)
+    this.#web.injectJavaScript(script);
   }
 
   // MARK: - Private methods

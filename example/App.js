@@ -40,7 +40,7 @@ export default function App() {
         zoom={15}
         zoomRange={{min: 14, max: 16}}
         location={{lon: 100.5382, lat: 13.7649}}
-        // ui={false}
+        // ui={Sphere.static('UiComponent', 'None')}
         lastView={false}
         // language={'en'}
         onReady={onReady}
